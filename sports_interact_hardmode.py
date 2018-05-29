@@ -42,6 +42,10 @@ Enter 2 for points:
         else:
             print("Invalid input.")
     if stat_to_compare == "1":
-        team_sort = db.query("SELECT * FROM sports_stats ORDER BY wins ASC;")
+        team_sort = db.query("SELECT * FROM sports_stats ORDER BY wins DESC;")
+        for row in team_sort[:5]:
+            print(row)
+    elif stat_to_compare == "2":
+        team_sort = db.query("SELECT * FROM sports_stats ORDER BY points DESC;")
         for row in team_sort[:5]:
             print(row)
