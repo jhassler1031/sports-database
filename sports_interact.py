@@ -18,4 +18,12 @@ if user_choice == "1":
     for row in team_data:
         print(row)
 elif user_choice == "2":
-    pass
+    new_team_name = input("Enter the new team name: ")
+    new_team_wins = input("Enter number of wins: ")
+    new_team_losses = input("Enter number of losses: ")
+    new_team_points = input("Enter number of points: ")
+    db.query("INSERT INTO sports_stats VALUES (:team_name, :wins, :losses, :points);",
+    team_name=new_team_name,
+    wins=new_team_wins,
+    losses=new_team_losses,
+    points=new_team_points)
